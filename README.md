@@ -40,7 +40,7 @@ Loss:5.3968，PPL:220.70095144082947，PLEU:0.0，结果很差
 
 训练损失曲线如下：
 
-![image](C:\Users\HCSI\PycharmProjects\pythonProject1\NMT\Model_1_vi_en_loss.png)
+![image](https://github.com/YoungSeng/Big_Data_Analytics_B/blob/master/Model_1_vi_en_loss.png)
 
 ## Model_2_vi_en.py
 
@@ -92,7 +92,7 @@ predicted trg = ['a', 'black', 'dog', 'and', 'a', 'spotted', 'dog', 'fighting', 
 
 注意力矩阵：
 
-![image](C:\Users\HCSI\PycharmProjects\pythonProject1\NMT\Attention Matrix.png)
+![image](https://github.com/YoungSeng/Big_Data_Analytics_B/blob/master/Attention%20Matrix.png)
 
 ## Model_3_vi_en
 
