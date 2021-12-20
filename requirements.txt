@@ -1,0 +1,36 @@
+absl-py @ file:///tmp/build/80754af9/absl-py_1603893126410/work
+astor==0.8.1
+audioread==2.1.9
+certifi==2020.11.8
+cffi==1.14.4
+decorator==4.4.2
+gast @ file:///tmp/build/80754af9/gast_1597433534803/work
+google-pasta==0.2.0
+grpcio @ file:///tmp/build/80754af9/grpcio_1597424460877/work
+h5py @ file:///tmp/build/80754af9/h5py_1593454121459/work
+joblib==0.17.0
+Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
+Keras-Preprocessing==1.1.0
+librosa==0.7.2
+llvmlite==0.34.0
+Markdown==2.6.9
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+numba==0.51.2
+numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1603487797006/work
+protobuf==3.13.0
+pycparser==2.20
+resampy==0.2.2
+scikit-learn==0.23.2
+scipy @ file:///tmp/build/80754af9/scipy_1597686625380/work
+six==1.10.0
+SoundFile==0.10.3.post1
+tensorboard==1.14.0
+tensorflow==1.14.0
+tensorflow-estimator==1.14.0
+termcolor==1.1.0
+threadpoolctl==2.1.0
+tqdm==4.54.0
+Werkzeug==0.12.2
+wrapt==1.12.1
