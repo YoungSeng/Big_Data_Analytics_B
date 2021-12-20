@@ -2,7 +2,7 @@
 
 ## 软件环境
 
-1. Anaconda3 2021.05 (64-bit)
+1. Miniconda3-latest-Linux-x86_64
 2. Pycharm 2021.2.1
 
 ## Model_1_vi_en.py
@@ -38,6 +38,9 @@ Loss:5.3968，PPL:220.70095144082947，PLEU:0.0，结果很差
 
 增加’unk‘的情况，修改一些参数的结果如下。
 
+训练损失曲线如下：
+
+![image](C:\Users\HCSI\PycharmProjects\pythonProject1\NMT\Model_1_vi_en_loss.png)
 
 ## Model_2_vi_en.py
 
@@ -51,26 +54,6 @@ Loss:5.3968，PPL:220.70095144082947，PLEU:0.0，结果很差
 
 最终结果：在NVIDIA RTX 3080运行11h 40m后（A100上运行45m），
 Test Loss: 4.778，Test PPL: 118.853，结果很差
-
-```
->'Câu chuyện này chưa kết thúc .' 
-truth:This is not a finished story .
-Microsoft Translator:This story is not over.
-Model_1_vi_en:this is the not . . <EOS> 
-Model_2_vi_en:this story is .
-
->'Ông là ông của tôi .'
-truth:He is my grandfather .
-Microsoft Translator:You're my grandfather.
-Model_1_vi_en:he was my . <EOS>
-Model_2_vi_en:he my grandfather .
-
->'Tôi chưa bao giờ gặp ông ngoài đời .'
-truth:I never knew him in real life .
-Microsoft Translator:I've never met you in real life.
-Model_1_vi_en:i never never met him meet him . <EOS>
-Model_2_vi_en:i never have the outside .
-```
 
 [comment]: <> (>'Ông qua đời , bị lịch sử quật ngã .')
 
@@ -99,7 +82,7 @@ PPL在120左右，但是对单个句子翻译效果感觉没有之前好，可�
 
 模型配置：Packed Padded Sequences, Masking
 
-运行结果：Test Loss: 3.187，Test PPL:  24.207，BLEU score = 29.20
+运行结果：在A100上训练5min，Test Loss: 3.187，Test PPL:  24.207，BLEU score = 29.20
 
 ```
 src = ['ein', 'schwarzer', 'hund', 'und', 'ein', 'gefleckter', 'hund', 'kämpfen', '.']
@@ -107,10 +90,38 @@ trg = ['a', 'black', 'dog', 'and', 'a', 'spotted', 'dog', 'are', 'fighting']
 predicted trg = ['a', 'black', 'dog', 'and', 'a', 'spotted', 'dog', 'fighting', '.', '<eos>']
 ```
 
-## Model_3_tensorflow
+注意力矩阵：
+
+![image](C:\Users\HCSI\PycharmProjects\pythonProject1\NMT\Attention Matrix.png)
+
+## Model_3_vi_en
 
 参考：https://github.com/tensorflow/nmt/tree/tf-1.4
 
-模型配置：Global attention，num_layers=2，num_units=128，dropout=0.2
+模型配置：Global attention(luong)，num_layers=2，num_units=128，dropout=0.2
 
-运行结果：
+运行结果：在RTX 2080 Ti上训练1h 34min，训练集 ppl 14.51，dev ppl 15.10, dev bleu 14.7, test ppl 13.94, test bleu 16.5
+
+```
+>'Câu chuyện này chưa kết thúc .' 
+truth:This is not a finished story .
+Microsoft Translator:This story is not over.
+Model_1_vi_en:this is the not . . <EOS> 
+Model_2_vi_en:this story is .
+Model_3_vi_en:This story isn &apos;t going to end .
+
+>'Ông là ông của tôi .'
+truth:He is my grandfather .
+Microsoft Translator:You're my grandfather.
+Model_1_vi_en:he was my . <EOS>
+Model_2_vi_en:he my grandfather .
+Model_3_vi_en:He was my grandfather .
+
+>'Tôi chưa bao giờ gặp ông ngoài đời .'
+truth:I never knew him in real life .
+Microsoft Translator:I've never met you in real life.
+Model_1_vi_en:i never never met him meet him . <EOS>
+Model_2_vi_en:i never have the outside .
+Model_3_vi_en:I never met him outside of life .
+```
+可以发现，用tensorflow的这个模型翻译效果最好
